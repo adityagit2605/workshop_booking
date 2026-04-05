@@ -1,0 +1,41 @@
+.app-footer {
+  background: var(--gradient-hero);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: var(--space-lg) var(--space-xl);
+  margin-top: auto;
+}
+
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: var(--font-sm);
+}
+
+.footer-icon {
+  font-size: 20px;
+  color: hsl(200, 85%, 62%);
+}
+
+.footer-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--font-xs);
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+  }
+}
