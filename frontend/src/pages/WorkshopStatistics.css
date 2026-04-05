@@ -1,0 +1,167 @@
+/* ── Workshop Statistics Page ────────────────────────── */
+
+.stats-page {
+  max-width: 100% !important;
+}
+
+.stats-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+/* ── Sidebar ── */
+.stats-sidebar {
+  position: sticky;
+  top: calc(64px + var(--space-xl));
+}
+
+.filter-card {
+  overflow: hidden;
+}
+
+.filter-header {
+  padding: var(--space-lg) var(--space-xl);
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-body);
+}
+
+.filter-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.filter-title .material-icons-round {
+  font-size: 22px;
+  color: var(--primary);
+}
+
+.filter-body {
+  padding: var(--space-lg) var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.filter-body .form-group {
+  margin-bottom: 0;
+}
+
+.filter-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.filter-actions .btn {
+  flex: 1;
+  justify-content: center;
+}
+
+/* ── Main Content ── */
+.stats-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.stats-chart-buttons {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.stats-table-wrapper {
+  overflow: hidden;
+}
+
+.stats-table-wrapper .data-table thead th {
+  background: var(--bg-surface);
+}
+
+.row-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: var(--font-xs);
+  font-weight: 600;
+  background: var(--primary);
+  color: var(--text-on-primary);
+  border-radius: var(--radius-sm);
+}
+
+.workshop-name-pill {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--info-bg);
+  color: var(--info);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+}
+
+.stats-pagination-bottom {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+/* ── Chart Modal ── */
+.chart-modal {
+  width: 900px;
+  max-width: 95vw;
+}
+
+.chart-body {
+  height: 420px;
+  padding: var(--space-xl);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .stats-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-sidebar {
+    position: static;
+  }
+
+  .chart-modal {
+    width: 95vw;
+  }
+
+  .chart-body {
+    height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stats-action-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .stats-chart-buttons {
+    justify-content: stretch;
+  }
+
+  .stats-chart-buttons .btn {
+    flex: 1;
+  }
+}
