@@ -1,93 +1,140 @@
-# **FOSSEE Workshop Booking Platform**
+# 🎨 UI/UX Enhancement of Workshop Booking Platform
 
-> This website is for coordinators to book a workshop(s). They can book a workshop based on instructors' posts or can propose a workshop date based on their convenience.
+## Overview
 
-## 🎨 UI/UX Enhancement & React Migration
+This project focuses on redesigning and enhancing the user interface and experience of the existing Workshop Booking platform developed under FOSSEE. The primary objective was to improve usability, responsiveness, and visual appeal while preserving the original backend logic.
 
-This project recently underwent a major UI/UX enhancement to modernize the existing Django-based Workshop Booking platform. The goal was to enhance usability, responsiveness, and visual design while maintaining the core functionality of the application. The redesign prioritizes clarity, accessibility, and a premium modern user experience.
+The updated interface emphasizes clarity, accessibility, and a smooth user journey across devices, with special attention to mobile users.
 
-### Technical Architecture & Design Principles
+---
 
-1. **Separation of Concerns:** We cleanly decoupled the backend data layer (Django) from the presentation layer (React/Vite). The tightly coupled Django view logic was systematically migrated into stateless REST APIs using Django Rest Framework (DRF) and custom Serializers.
-2. **Custom Design System (Vanilla CSS):** Instead of relying on heavy CSS frameworks like Tailwind, we established a strict, consistent design system using **Vanilla CSS and CSS Variables** (Design Tokens). This allowed us to build highly customized effects, dynamic micro-animations, and a cohesive color grading palette that ensures a premium look across the entire application while remaining easily maintainable.
-3. **Mobile-First Approach:** The UI scales upward using **CSS Flexbox and CSS Grid** to smoothly transition components from mobile-friendly defaults into multi-column layouts on tablets and large desktop monitors.
-4. **Client-Side Rendering (CSR):** By utilizing React and Vite, the trade-off of a slightly larger initial JavaScript bundle is vastly offset by superior performance and highly dynamic design interactions during subsequent navigations, resulting in a significantly better overall User Experience (UX).
+## Technical Reasoning & Implementation Details
+
+### What design principles influenced your approach?
+
+The redesign was primarily driven by the concept of **Decoupled Architecture**, where the Django backend operates independently from the React frontend. This separation improves scalability and maintainability.
+
+From a UI perspective, the focus was on **Simplicity and Consistency**. A structured design system was implemented using reusable components and standardized styling practices, ensuring uniformity across all pages and making future updates easier.
+
+---
+
+### How did you achieve responsiveness across devices?
+
+A **Mobile-First Design Strategy** was followed. Layouts were initially designed for smaller screens and progressively enhanced for larger devices.
+
+Using **CSS Flexbox and Grid**, components adapt fluidly across different screen sizes. Breakpoints were applied to restructure layouts into multi-column formats for tablets and desktops, ensuring a seamless experience on all devices.
+
+---
+
+### What trade-offs were considered between design and performance?
+
+The application uses **Client-Side Rendering (CSR)** with React and Vite. While this increases the initial load time due to JavaScript bundle size, it significantly improves responsiveness after the first load.
+
+This approach allows faster navigation, smoother interactions, and a more dynamic interface, which enhances overall user experience despite the slight initial delay.
+
+---
+
+### What challenges did you face and how did you solve them?
+
+One of the major challenges was transforming the tightly integrated Django views into independent API endpoints.
+
+To solve this:
+- Django Rest Framework (DRF) was introduced  
+- APIs were carefully structured and tested using serializers  
+- Authentication and session handling were adapted for API-based communication  
+- CORS issues were resolved to enable smooth frontend-backend interaction  
+
+This step-by-step backend restructuring made integration with React efficient and secure.
 
 ---
 
 ## 🛠 Core Features
 
 ### Statistics
-1. **Instructors Only**
-    * Monthly Workshop Count
-    * Instructor/Coordinator Profile stats
-    * Upcoming Workshops
-    * View/Post comments on Coordinator's Profile
-2. **Open to All**
-    * Workshops taken over Map of India
-    * Pie chart based on Total Workshops taken to Type of Workshops.
 
-### Workshop Related Features
-> Instructors can Accept, Reject or Delete workshops based on their preference, also they can postpone a workshop based on coordinators request.
+#### Instructors Only
+- Monthly Workshop Count  
+- Instructor/Coordinator Profile Stats  
+- Upcoming Workshops  
+- View/Post Comments on Coordinator Profiles  
+
+#### Open to All
+- Workshops visualized across the map of India  
+- Pie chart representing workshop distribution by type  
 
 ---
 
-## 📸 Before and After Features
+### Workshop Management Features
+
+- Instructors can **Accept, Reject, or Delete** workshop requests  
+- Ability to **Postpone workshops** based on coordinator requests  
+- Coordinators can propose workshop dates based on availability  
+
+---
+
+## 📸 Before and After Screenshots
 
 **Home Before:**  
-![Home Before](./screenshot/before1.png)
+![Home Before](./screenshots/before1.png)
 
 **Home After:**  
-![Home After](./screenshot/after1.png)
+![Home After](./screenshots/after1.png)
 
 **Workshop Statistics Before:**  
-![Table Before](./screenshot/before2.png)
+![Stats Before](./screenshots/before2.png)
 
 **Workshop Statistics After:**  
-![Table After](./screenshot/after2.png)
+![Stats After](./screenshots/after2.png)
 
 ---
 
 ## 🚀 Setup Instructions
 
-This project is divided into two distinct applications: a Django Backend API and a React Frontend. You will need two terminals running simultaneously to start the project.
+This project is divided into two parts:
+- Django Backend (API)
+- React Frontend
 
-### 1. Backend Setup (Django)
-Navigate to the root directory of the project.
-
-```bash
-# 1. Create and activate a virtual environment 
-python -m venv venv
-# On Windows:
-venv\Scripts\activate
-# On Mac/Linux:
-# source venv/bin/activate
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Apply database migrations
-python manage.py migrate
-
-# 4. Start the backend development server
-python manage.py runserver
-```
-
-### 2. Frontend Setup (React / Vite)
-Open a new terminal and navigate to the `frontend` folder.
-
-```bash
-# 1. Move to the frontend directory
-cd frontend
-
-# 2. Install node module dependencies
-npm install
-
-# 3. Start the Vite development server
-npm run dev
-```
-
-Your React frontend will typically run on `http://localhost:5173` and communicate with the Django backend running on `http://localhost:8000`.
+Both must run simultaneously.
 
 ---
-__NOTE__: Check `docs/Getting_Started.md` for more historical info on the backend architecture.
+
+### 1. Backend Setup (Django)
+
+```bash
+# Create virtual environment
+python -m venv venv
+
+# Activate environment
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+# source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Apply migrations
+python manage.py migrate
+
+# Run development server
+python manage.py runserver
+
+# Move to frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+
+##Running URLs
+Frontend: http://localhost:5173
+Backend: http://localhost:8000
+
+##Student Details
+Name: Aditya Pandey
+Institution: VIT Bhopal
+Email: pandeyap2605@gmail.com
+College Email: aditya.23bce10203@vitbhopal.ac.in
