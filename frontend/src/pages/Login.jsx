@@ -11,6 +11,7 @@ export default function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Redirect if already logged in
   if (isAuthenticated) {
@@ -39,44 +40,46 @@ export default function Login() {
   }
 
   return (
-    <div className="login-page">
-      {/* Animated Background */}
-      <div className="login-bg">
-        <div className="login-bg-orb orb-1"></div>
-        <div className="login-bg-orb orb-2"></div>
-        <div className="login-bg-orb orb-3"></div>
-      </div>
+    <div className="login-wrapper">
+      <div className="login-split-container">
 
-      <div className="login-container animate-fade-in-up">
-        <div className="login-card glass-card">
-          {/* Header */}
-          <div className="login-header">
-            <div className="login-logo">
-              <span className="material-icons-round">science</span>
-            </div>
-            <h1 className="login-title">Welcome Back</h1>
-            <p className="login-subtitle">Sign in to FOSSEE Workshop Portal</p>
+        {/* Left Side: Split Graphic Cards */}
+        <div className="login-left-column">
+          <div className="login-left-hero">
+            <img src="/hero.jpg" alt="FOSSEE Workshop Hero" className="login-hero-image" />
+            <h1 className="banner-title">
+              Build. Learn. Innovate
+            </h1>
           </div>
 
-          {/* Error */}
+          <div className="login-left-footer">
+            <img src="/classroom.jpg" alt="FOSSEE Workshop Classroom" className="login-classroom-image" />
+          </div>
+        </div>
+
+        {/* Right Side: Form Card */}
+        <div className="login-right-column animate-fade-in-up">
+
+          <div className="form-header-text">
+            <h2>Where academic rigor meets open source innovation.</h2>
+            <p>Ready to embark on your tech adventure? Log in now and let FOSSEE take you there. Your next achievement is just a click away!</p>
+          </div>
+
           {error && (
             <div className="login-error animate-fade-in" id="login-error">
-              <span className="material-icons-round">error_outline</span>
               {error}
             </div>
           )}
 
-          {/* Form */}
           <form onSubmit={handleSubmit} className="login-form" id="login-form">
             <div className="form-group">
               <label className="form-label" htmlFor="id_username">Username</label>
               <div className="input-wrapper">
-                <span className="input-icon material-icons-round">person</span>
                 <input
                   type="text"
                   id="id_username"
-                  className="form-input has-icon"
-                  placeholder="Enter your username"
+                  className="form-input"
+                  placeholder="Input Username"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   autoFocus
@@ -88,55 +91,55 @@ export default function Login() {
             <div className="form-group">
               <label className="form-label" htmlFor="id_password">Password</label>
               <div className="input-wrapper">
-                <span className="input-icon material-icons-round">lock</span>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   id="id_password"
-                  className="form-input has-icon"
-                  placeholder="Enter your password"
+                  className="form-input has-icon-right"
+                  placeholder="********"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
                 />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={() => setShowPassword(!showPassword)}
+                  tabIndex="-1"
+                >
+                  <span className="material-icons-round">
+                    {showPassword ? 'visibility_off' : 'visibility'}
+                  </span>
+                </button>
               </div>
+            </div>
+
+            <div className="signup-prompt">
+              New to FOSSEE? <Link to="/register">Create an Account</Link>
+            </div>
+
+            <div className="form-options">
+              <label className="remember-me">
+                <input type="checkbox" className="custom-checkbox" />
+                <span className="remember-text">Remember me</span>
+              </label>
+              <a href="/reset/password_reset/" className="forgot-link">
+                Forgot your password?
+              </a>
             </div>
 
             <button
               type="submit"
-              className="btn btn-primary btn-lg login-btn"
+              className="login-btn"
               disabled={loading}
               id="login-submit"
             >
               {loading ? (
-                <>
-                  <span className="spinner" style={{width:18,height:18,borderWidth:2}}></span>
-                  Signing in...
-                </>
+                <span className="spinner"></span>
               ) : (
-                <>
-                  Sign In
-                  <span className="material-icons-round">arrow_forward</span>
-                </>
+                "Login - Continue Exploring and Building"
               )}
             </button>
           </form>
-
-          {/* Footer Links */}
-          <div className="login-footer">
-            <div className="login-divider">
-              <span>or</span>
-            </div>
-            <div className="login-links">
-              <Link to="/register" className="login-link" id="register-link">
-                <span className="material-icons-round">person_add</span>
-                New around here? <strong>Sign up</strong>
-              </Link>
-              <a href="/reset/password_reset/" className="login-link forgot-link" id="forgot-link">
-                <span className="material-icons-round">help_outline</span>
-                Forgot password?
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
