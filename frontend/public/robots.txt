@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Prevent indexing of potentially sensitive/internal routes
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: /sitemap.xml

@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import SEO from '../components/SEO';
 import './WorkshopStatistics.css';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
@@ -142,8 +143,14 @@ export default function WorkshopStatistics() {
   };
 
   return (
-    <div className="stats-page page-container-fluid animate-fade-in">
-      <div className="stats-layout">
+    <>
+      <SEO 
+        title="Statistics & Analytics | FOSSEE Workshop Portal"
+        description="Explore detailed analytics and statistics of FOSSEE workshops conducted across different states and institutions in India."
+        keywords="FOSSEE statistics, workshop analytics, IIT Bombay training data, state wise workshops"
+      />
+      <div className="stats-page page-container-fluid animate-fade-in">
+        <div className="stats-layout">
         {/* ── Sidebar Filters ── */}
         <aside className="stats-sidebar">
           <div className="filter-card card">
@@ -373,6 +380,7 @@ export default function WorkshopStatistics() {
         </div>
       )}
     </div>
+    </>
   );
 }
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import SEO from '../components/SEO';
 import './Login.css';
 
 export default function Login() {
@@ -40,8 +41,14 @@ export default function Login() {
   }
 
   return (
-    <div className="login-wrapper">
-      <div className="login-split-container">
+    <>
+      <SEO 
+        title="Login | FOSSEE Workshop Portal"
+        description="Log in to the FOSSEE Workshop Portal to book, manage, and explore technical workshops by IIT Bombay."
+        keywords="FOSSEE login, IIT Bombay workshops, technical training, open source, education"
+      />
+      <div className="login-wrapper">
+        <div className="login-split-container">
 
         {/* Left Side: Split Graphic Cards */}
         <div className="login-left-column">
@@ -143,5 +150,6 @@ export default function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }
