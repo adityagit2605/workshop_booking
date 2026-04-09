@@ -65,6 +65,18 @@ One of the primary hurdles was the "broken" visual flow of the original site. By
 **Workshop Statistics After:**  
 ![Table After](./screenshot/after2.png)
 
+**Signup Page Before:**  
+![Table Before](./screenshot/signup1.png)
+
+**Signup Page After:**  
+![Table Before](./screenshot/signup.png)
+
+**Forget Password Before:**  
+![Table Before](./screenshot/forget1.png)
+
+**Forget Password After:**  
+![Table After](./screenshot/forget.png)
+
 
 **Responsiveness 1:**
 ![login page responsive](./screenshot/after3.png)
