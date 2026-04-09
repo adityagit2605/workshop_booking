@@ -54,12 +54,23 @@ async function apiRequest(endpoint, options = {}) {
 }
 
 async function handleResponse(response) {
-  const data = await response.json().catch(() => null);
+  let data;
+  try {
+    data = await response.json();
+  } catch (err) {
+    data = null;
+  }
 
   if (!response.ok) {
-    const error = new Error(data?.error || data?.detail || 'Request failed');
+    const error = new Error(data?.error || data?.detail || `Request failed with status ${response.status}`);
     error.status = response.status;
     error.data = data;
+    
+    // Global logging for non-auth errors
+    if (response.status !== 401 && response.status !== 403) {
+      console.warn(`[API Error] ${response.status} ${response.url}:`, data);
+    }
+    
     throw error;
   }
 

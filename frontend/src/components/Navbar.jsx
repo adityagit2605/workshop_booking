@@ -109,6 +109,9 @@ export default function Navbar() {
                 <button
                   className="nav-profile-trigger"
                   onClick={() => setProfileOpen(!profileOpen)}
+                  aria-expanded={profileOpen}
+                  aria-haspopup="true"
+                  aria-label="User Profile"
                   id="nav-profile-btn"
                 >
                   <span className="profile-avatar">

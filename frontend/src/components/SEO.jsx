@@ -23,11 +23,11 @@ const SEO = ({
       <meta property="og:type" content={type} />
       <meta property="og:site_name" content={name} />
 
-      {/* Twitter Tags */}
-      <meta name="twitter:creator" content={name} />
-      <meta name="twitter:card" content="summary" />
+      {/* Twitter Card Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:creator" content="@fossee" />
     </Helmet>
   );
 };
