@@ -42,7 +42,7 @@ export default function Login() {
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Login | FOSSEE Workshop Portal"
         description="Log in to the FOSSEE Workshop Portal to book, manage, and explore technical workshops by IIT Bombay."
         keywords="FOSSEE login, IIT Bombay workshops, technical training, open source, education"
@@ -50,106 +50,106 @@ export default function Login() {
       <div className="login-wrapper">
         <div className="login-split-container">
 
-        {/* Left Side: Split Graphic Cards */}
-        <div className="login-left-column">
-          <div className="login-left-hero">
-            <img src="/hero.jpg" alt="FOSSEE Workshop Hero" className="login-hero-image" />
-            <h1 className="banner-title">
-              Build. Learn. Innovate
-            </h1>
-          </div>
-
-          <div className="login-left-footer">
-            <img src="/classroom.jpg" alt="FOSSEE Workshop Classroom" className="login-classroom-image" />
-          </div>
-        </div>
-
-        {/* Right Side: Form Card */}
-        <div className="login-right-column animate-fade-in-up">
-
-          <div className="form-header-text">
-            <h2>Where academic rigor meets open source innovation.</h2>
-            <p>Ready to embark on your tech adventure? Log in now and let FOSSEE take you there. Your next achievement is just a click away!</p>
-          </div>
-
-          {error && (
-            <div className="login-error animate-fade-in" id="login-error">
-              {error}
+          {/* Left Side: Split Graphic Cards */}
+          <div className="login-left-column">
+            <div className="login-left-hero">
+              <img src="/hero.jpg" alt="FOSSEE Workshop Hero" className="login-hero-image" />
+              <h1 className="banner-title">
+                Build. Learn. Innovate
+              </h1>
             </div>
-          )}
 
-          <form onSubmit={handleSubmit} className="login-form" id="login-form">
-            <div className="form-group">
-              <label className="form-label" htmlFor="id_username">Username</label>
-              <div className="input-wrapper">
-                <input
-                  type="text"
-                  id="id_username"
-                  className="form-input"
-                  placeholder="Input Username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  autoFocus
-                  autoComplete="username"
-                />
+            <div className="login-left-footer">
+              <img src="/classroom.jpg" alt="FOSSEE Workshop Classroom" className="login-classroom-image" />
+            </div>
+          </div>
+
+          {/* Right Side: Form Card */}
+          <div className="login-right-column animate-fade-in-up">
+
+            <div className="form-header-text">
+              <h2>Where academic rigor meets open source innovation.</h2>
+              <p>Ready to embark on your tech adventure? Log in now and let FOSSEE take you there. Your next achievement is just a click away!</p>
+            </div>
+
+            {error && (
+              <div className="login-error animate-fade-in" id="login-error">
+                {error}
               </div>
-            </div>
+            )}
 
-            <div className="form-group">
-              <label className="form-label" htmlFor="id_password">Password</label>
-              <div className="input-wrapper">
-                <input
-                  type={showPassword ? "text" : "password"}
-                  id="id_password"
-                  className="form-input has-icon-right"
-                  placeholder="********"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="current-password"
-                />
-                <button
-                  type="button"
-                  className="password-toggle"
-                  onClick={() => setShowPassword(!showPassword)}
-                  tabIndex="-1"
-                >
-                  <span className="material-icons-round">
-                    {showPassword ? 'visibility_off' : 'visibility'}
-                  </span>
-                </button>
+            <form onSubmit={handleSubmit} className="login-form" id="login-form">
+              <div className="form-group">
+                <label className="form-label" htmlFor="id_username">Username</label>
+                <div className="input-wrapper">
+                  <input
+                    type="text"
+                    id="id_username"
+                    className="form-input"
+                    placeholder="Input Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    autoFocus
+                    autoComplete="username"
+                  />
+                </div>
               </div>
-            </div>
 
-            <div className="signup-prompt">
-              New to FOSSEE? <Link to="/register">Create an Account</Link>
-            </div>
+              <div className="form-group">
+                <label className="form-label" htmlFor="id_password">Password</label>
+                <div className="input-wrapper">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    id="id_password"
+                    className="form-input has-icon-right"
+                    placeholder="********"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    autoComplete="current-password"
+                  />
+                  <button
+                    type="button"
+                    className="password-toggle"
+                    onClick={() => setShowPassword(!showPassword)}
+                    tabIndex="-1"
+                  >
+                    <span className="material-icons-round">
+                      {showPassword ? 'visibility_off' : 'visibility'}
+                    </span>
+                  </button>
+                </div>
+              </div>
 
-            <div className="form-options">
-              <label className="remember-me">
-                <input type="checkbox" className="custom-checkbox" />
-                <span className="remember-text">Remember me</span>
-              </label>
-              <a href="/reset/password_reset/" className="forgot-link">
-                Forgot your password?
-              </a>
-            </div>
+              <div className="signup-prompt">
+                New to FOSSEE? <Link to="/register">Create an Account</Link>
+              </div>
 
-            <button
-              type="submit"
-              className="login-btn"
-              disabled={loading}
-              id="login-submit"
-            >
-              {loading ? (
-                <span className="spinner"></span>
-              ) : (
-                "Login - Continue Exploring and Building"
-              )}
-            </button>
-          </form>
+              <div className="form-options">
+                <label className="remember-me">
+                  <input type="checkbox" className="custom-checkbox" />
+                  <span className="remember-text">Remember me</span>
+                </label>
+                <Link to="/forgot-password" className="forgot-link">
+                  Forgot your password?
+                </Link>
+              </div>
+
+              <button
+                type="submit"
+                className="login-btn"
+                disabled={loading}
+                id="login-submit"
+              >
+                {loading ? (
+                  <span className="spinner"></span>
+                ) : (
+                  "Login - Continue Exploring and Building"
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 }
